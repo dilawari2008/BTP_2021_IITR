@@ -1,0 +1,54 @@
+a = imread('./p1/op.png');
+>> image(a)
+create new figure
+>> b = imread('./p1/cp.png');
+>> image(b)
+tools > data tips to hover
+
+clc - clear screen
+close all - close all figures
+clear - delete vars
+
+RGB = double(imread('your image')) ;  % read image, color image
+R = RGB(:,:,1) ;
+G = RGB(:,:,2) ;
+B = RGB(:,:,3) ;
+% write to excel 
+xlswrite('Red.xls', R)
+xlswrite('Green.xls', G)
+xlswrite('Blue.xls', B)
+
+RGB = double(imread('./p1/op.png')) ;
+R = RGB(:,:,1) ;
+G = RGB(:,:,2) ;
+B = RGB(:,:,3) ;
+csvwrite('./p1/p1opR.csv', R);
+csvwrite('./p1/p1opG.csv', G);
+csvwrite('./p1/p1opB.csv', B);
+
+%-------------------
+%RGB_extractor script
+initval = 1;
+stepval = 1;
+endval = 13;
+
+for i = initval:stepval:endval
+    a = string('p'+string(i));
+    %first op
+    RGB = double(imread('./'+a+'/op.png')) ;
+    R = RGB(:,:,1) ;
+    G = RGB(:,:,2) ;
+    B = RGB(:,:,3) ;
+    csvwrite('./'+a+'/'+'opR.csv', R);
+    csvwrite('./'+a+'/'+'opG.csv', G);
+    csvwrite('./'+a+'/'+'opB.csv', B);
+    %second cp
+    RGB = double(imread('./'+a+'/cp.png')) ;
+    R = RGB(:,:,1) ;
+    G = RGB(:,:,2) ;
+    B = RGB(:,:,3) ;
+    csvwrite('./'+a+'/'+'cpR.csv', R);
+    csvwrite('./'+a+'/'+'cpG.csv', G);
+    csvwrite('./'+a+'/'+'cpB.csv', B);
+end
+%-----------------
