@@ -52,3 +52,21 @@ for i = initval:stepval:endval
     csvwrite('./'+a+'/'+'cpB.csv', B);
 end
 %-----------------
+
+For converting matrix into image
+R = readtable('R_new.csv');
+G = readtable('G_new.csv');
+B = readtable('B_new.csv');
+
+size(R)
+a = zeros(515,181,3);
+R=table2array(R);
+G=table2array(G);
+B=table2array(B);
+
+a(:,:,1) = R;
+a(:,:,2) = G;
+a(:,:,3) = B;
+
+image(a);
+saveas(gcf,'myimage.jpg')
