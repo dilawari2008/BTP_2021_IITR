@@ -1,6 +1,6 @@
-R = readtable('./R_test.csv');
-G = readtable('./G_test.csv');
-B = readtable('./B_test.csv');
+R = readtable('./opR.csv');
+G = readtable('./opG.csv');
+B = readtable('./opB.csv');
 
 z = size(R);
 a = zeros(z(1),z(2),3);
